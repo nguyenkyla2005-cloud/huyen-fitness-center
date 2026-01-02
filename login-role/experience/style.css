@@ -1,0 +1,615 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+    font-family: 'Segoe UI', sans-serif;
+    color: #333;
+    background: #fff;
+}
+
+/* CONTAINER */
+.container{
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+}
+/* HEADER */
+.header {
+    background: #fff;
+    border-bottom: 1px solid #eee;
+}
+
+.header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.logo-123 {
+    color: #ff5722;
+}
+
+.menu a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+.menu a:hover {
+    color: #ff5722;
+}
+.page-hero{
+  position: relative;
+  height: 320px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  overflow: hidden;
+}
+
+/* Overlay tối */
+.page-hero__overlay{
+  position:absolute;
+  inset:0;
+  background: rgba(0,0,0,.62);
+  z-index:0;
+}
+
+/* Content nằm trên overlay */
+.page-hero__content{
+  position: relative;
+  z-index: 1;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap: 14px;
+  color:#fff;
+}
+
+/* Title giống mẫu */
+.page-hero__content h1{
+  margin:0;
+  font-size: 42px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+/* Pill Home / HLV */
+.breadcrumb-pill{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px;
+  background: #ff5722;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  color:#fff;
+}
+
+.breadcrumb-pill a{
+  color:#fff;
+  text-decoration:none;
+  opacity:.95;
+}
+/* ================================
+   POST.PHP (TIN TỨC CHI TIẾT)
+   ================================ */
+
+/* nếu bạn đã có .container thì có thể bỏ */
+.container{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ===== HERO BANNER ===== */
+.news-hero{
+  position: relative;
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  /* đổi ảnh banner nếu muốn */
+  background: url("images/banner-service.jfif") center/cover no-repeat;
+  overflow: hidden;
+}
+
+.news-hero .page-hero__overlay{
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.62);
+}
+
+.news-hero .page-hero__content{
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 0 20px;
+}
+
+.news-hero .page-hero__content h1{
+  margin: 0;
+  color: #fff;
+  font-size: 44px;
+  font-weight: 950;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-shadow: 0 10px 25px rgba(0,0,0,.35);
+}
+
+/* pill breadcrumb */
+.breadcrumb-pill{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px;
+  background: #ff5722;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 800;
+  color: #fff;
+  box-shadow: 0 12px 28px rgba(0,0,0,.25);
+}
+
+/* tắt pseudo-element thừa nếu có */
+.breadcrumb-pill::before,
+.breadcrumb-pill::after{
+  content: none !important;
+}
+
+.breadcrumb-pill a{
+  color:#fff;
+  text-decoration:none;
+  opacity:.95;
+}
+.breadcrumb-pill a:hover{ opacity:1; }
+
+/* ===== MAIN ===== */
+.news-post{
+  padding: 55px 0 80px;
+  background: #f6f7fb;
+}
+
+/* nút quay lại */
+.back-link{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 900;
+  color: #111;
+  text-decoration: none;
+  margin: 6px 0 16px;
+}
+.back-link:hover{ color:#ff5722; }
+
+/* ===== CARD BÀI VIẾT ===== */
+.post-card{
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 18px 45px rgba(0,0,0,.08);
+  overflow: hidden;
+}
+
+/* ảnh cover */
+.post-cover{
+  width: 100%;
+  height: 440px;
+  object-fit: cover;
+  display: block;
+}
+
+/* phần nội dung */
+.post-body{
+  padding: 24px 28px 30px;
+}
+
+.post-body h2{
+  margin: 0 0 10px;
+  font-size: 30px;
+  font-weight: 950;
+  color: #111;
+  line-height: 1.25;
+}
+
+.post-meta{
+  font-size: 14px;
+  font-weight: 800;
+  color: #777;
+  margin-bottom: 14px;
+}
+
+/* mô tả ngắn */
+.post-excerpt{
+  margin: 0 0 14px;
+  color: #444;
+  line-height: 1.85;
+  font-size: 15px;
+}
+
+/* nội dung bài */
+.post-content{
+  color: #333;
+  font-size: 15px;
+  line-height: 1.95;
+}
+
+/* xuống dòng đẹp */
+.post-content p{
+  margin: 0 0 12px;
+}
+
+/* list */
+.post-content ul{
+  margin: 10px 0 16px 20px;
+  padding: 0;
+}
+.post-content li{
+  margin: 6px 0;
+}
+
+/* heading trong bài nếu bạn dùng <h3> */
+.post-content h3{
+  margin: 18px 0 10px;
+  font-size: 18px;
+  font-weight: 950;
+  color: #111;
+}
+
+/* blockquote nếu có */
+.post-content blockquote{
+  margin: 14px 0;
+  padding: 12px 14px;
+  border-left: 4px solid #ff5722;
+  background: rgba(255,87,34,.08);
+  border-radius: 10px;
+  color: #444;
+}
+
+/* CTA cuối bài (nếu bạn muốn thêm) */
+.post-cta{
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid #eee;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.post-cta .btn-primary{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 42px;
+  padding: 0 16px;
+  border-radius: 10px;
+  background: #ff5722;
+  color: #fff;
+  font-weight: 950;
+  text-decoration: none;
+}
+.post-cta .btn-primary:hover{ opacity:.92; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px){
+  .news-hero{ height: 260px; }
+  .news-hero .page-hero__content h1{ font-size: 30px; }
+
+  .post-cover{ height: 240px; }
+  .post-body{ padding: 16px; }
+  .post-body h2{ font-size: 22px; }
+}
+.footer {
+    background: #111;
+    color: #ccc;
+    padding: 60px 0 0;
+}
+
+.footer-flex {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.footer-col h3,
+.footer-col h4 {
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.footer-col a {
+    display: block;
+    color: #ccc;
+    text-decoration: none;
+    margin-bottom: 8px;
+}
+
+.footer-col a:hover {
+    color: #ff5722;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    border-top: 1px solid #333;
+    font-size: 14px;
+}
+@media (max-width: 992px) {
+    .trainer-grid,
+    .news-grid,
+    .footer-flex {
+        grid-template-columns: 1fr;
+    }
+}
+.social-links {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.social-links a {
+    padding: 10px 16px;
+    border-radius: 30px;
+    font-size: 14px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Màu theo mạng xã hội */
+.social-links .fb {
+    background: #1877f2;
+}
+.social-links a:hover {
+    opacity: 0.85;
+}
+/* ===== BLOG STYLE CONTENT ===== */
+.post-body{
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.post-content{
+  font-size: 16px;
+  line-height: 1.95;
+  color: #2b2b2b;
+}
+
+.post-content p{
+  margin: 0 0 14px;
+  color: #444;
+}
+
+.post-content h3{
+  margin: 22px 0 10px;
+  font-size: 18px;
+  font-weight: 950;
+  color: #111;
+  position: relative;
+  padding-left: 14px;
+}
+
+.post-content h3::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 6px;
+  width: 6px;
+  height: 18px;
+  border-radius: 99px;
+  background: #ff5722;
+}
+
+.post-content ul{
+  margin: 0 0 14px 18px;
+  padding: 0;
+}
+
+.post-content li{
+  margin: 8px 0;
+  color:#333;
+}
+
+.post-content li::marker{
+  color:#ff5722;
+  font-weight: 900;
+}
+
+/* nhấn mạnh đoạn cuối kiểu “phù hợp với ai” */
+.post-content h3:last-of-type{
+  margin-top: 26px;
+}
+/* MENU LUÔN HIỆN KHI CUỘN TRANG */
+.header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99999;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+/* chừa khoảng trống để nội dung không bị menu che */
+body{
+  padding-top: 70px; /* đúng bằng chiều cao header của bạn */
+}
+
+/* nếu bạn click anchor (#news, #services...) không bị che */
+html{
+  scroll-padding-top: 80px;
+}
+.header-nav{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.header{
+  position:sticky;
+  top:0;
+  z-index:9999;
+  background:#fff;
+}
+
+/* Login button */
+.menu-auth{
+  display:flex;
+  align-items:center;
+}
+
+.auth-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:8px 14px;
+  border-radius:999px;
+  background:#ff5722;
+  color:#fff;
+  font-weight:800;
+  font-size:13px;
+  text-decoration:none;
+  white-space:nowrap;
+}
+.auth-btn:hover{ opacity:.9; }
+
+/* User dropdown */
+.auth-user{
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:8px 12px;
+  border-radius:999px;
+  border:1px solid #eee;
+  background:#fff;
+  cursor:pointer;
+  user-select:none;
+}
+
+.auth-name{
+  font-weight:800;
+  font-size:13px;
+  color:#111;
+}
+
+.auth-caret{
+  font-size:12px;
+  color:#666;
+}
+
+.auth-dropdown{
+  position:absolute;
+  top:calc(100% + 10px);
+  right:0;
+  width:180px;
+  background:#fff;
+  border:1px solid #eee;
+  border-radius:12px;
+  box-shadow:0 12px 30px rgba(0,0,0,.12);
+  padding:8px;
+  display:none;
+  z-index:9999;
+}
+
+.auth-dropdown a{
+  display:block;
+  padding:10px 10px;
+  border-radius:10px;
+  text-decoration:none;
+  color:#111;
+  font-weight:700;
+  font-size:13px;
+}
+.auth-dropdown a:hover{
+  background:#fff3ee;
+  color:#ff5722;
+}
+
+/* show dropdown on hover */
+.auth-user:hover .auth-dropdown{
+  display:block;
+}
+
+/* Responsive: xuống dòng gọn */
+@media (max-width: 992px){
+  .header-nav{ gap:10px; flex-wrap:wrap; justify-content:flex-end; }
+}.header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99999;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+/* dropdown user */
+.auth-user{ position:relative; }
+
+.auth-toggle{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  border:1px solid #eee;
+  background:#fff;
+  padding:8px 12px;
+  border-radius:10px;
+  cursor:pointer;
+  font-weight:600;
+}
+
+.auth-toggle:hover{ background:#f7f7f7; }
+
+.auth-dropdown{
+  position:absolute;
+  right:0;
+  top:calc(100% + 10px);
+  min-width:200px;
+  background:#fff;
+  border:1px solid #eee;
+  border-radius:12px;
+  box-shadow:0 12px 30px rgba(0,0,0,.12);
+  padding:8px;
+  display:none;
+  z-index:9999;
+}
+
+.auth-user.open .auth-dropdown{ display:block; }
+
+.auth-dropdown a{
+  display:block;
+  padding:10px 12px;
+  border-radius:10px;
+  text-decoration:none;
+  color:#111;
+  font-weight:500;
+}
+.auth-dropdown a:hover{ background:#f7f7f7; }
+
+.auth-dropdown a.danger{
+  color:#d11a2a;
+}
+.auth-dropdown a.danger:hover{
+  background:rgba(209,26,42,.08);
+}

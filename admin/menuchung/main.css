@@ -1,0 +1,340 @@
+/* Reset cơ bản */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f4f7f6;
+}
+
+/* Thanh điều hướng chính */
+.navbar {
+  background-color: #007bff; /* Màu xanh đặc trưng */
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+  color: white;
+}
+
+.nav-left,
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+/* Menu danh sách */
+.nav-menu {
+  list-style: none;
+  display: flex;
+  margin-left: 20px;
+}
+
+.nav-menu li a {
+  color: white;
+  text-decoration: none;
+  padding: 0 12px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  height: 50px;
+  transition: background 0.3s;
+}
+
+.nav-menu li a i {
+  margin-right: 6px;
+  font-size: 16px;
+}
+
+/* Hiệu ứng khi di chuột qua hoặc trang đang chọn */
+.nav-menu li a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Phần bên phải (Thông báo, User) */
+.nav-right {
+  gap: 20px;
+}
+
+.branch-name {
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.notifications {
+  position: relative;
+  cursor: pointer;
+}
+
+.notifications i {
+  font-size: 20px;
+}
+
+/* Thêm .notifications ở trước để chỉ áp dụng cho cái chuông, không áp dụng cho bảng */
+.notifications .badge {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background-color: #ff4d4d;
+  color: white;
+  font-size: 10px;
+  padding: 2px 5px;
+  border-radius: 10px;
+  border: 1px solid white;
+}
+
+.user-avatar i {
+  font-size: 30px;
+  cursor: pointer;
+}
+
+/* --- PHẦN LOGO MỚI THÊM --- */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  padding-right: 10px; /* Khoảng cách giữa logo và mục Khách hàng */
+}
+
+.nav-logo img {
+  height: 35px; /* Chiều cao logo (thanh navbar cao 50px nên 35px là đẹp) */
+  width: auto; /* Tự động điều chỉnh chiều rộng theo tỉ lệ ảnh */
+  display: block;
+  object-fit: contain;
+  filter: brightness(0) invert(1); /* Tùy chọn: Chuyển logo sang màu trắng nếu logo gốc là màu đen */
+}
+/* --------------------------- */
+
+/* Đảm bảo nav-left bọc được cả logo và menu */
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+
+/* Layout chung */
+.main-container {
+  display: flex;
+  height: calc(100vh - 50px);
+}
+
+/* Sidebar bên trái */
+.sidebar {
+  width: 250px;
+  background: #f8f9fa;
+  border-right: 1px solid #ddd;
+  padding: 15px;
+}
+
+.sidebar h3 {
+  font-size: 16px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.sidebar input,
+.sidebar select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.btn-search {
+  width: 100%;
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* Nội dung bên phải */
+.content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.btn-add {
+  background: #28a745;
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Bảng dữ liệu */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+.data-table th {
+  background: #e9ecef;
+  text-align: left;
+  padding: 12px;
+  font-size: 13px;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.data-table td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  font-size: 13px;
+}
+
+.status-done {
+  background: #28a745;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 11px;
+}
+
+.data-table img {
+  border: 1px solid #ddd;
+  transition: transform 0.2s;
+}
+
+.data-table img:hover {
+  transform: scale(1.5); /* Phóng to ảnh khi di chuột vào */
+  z-index: 10;
+  position: relative;
+}
+
+.btn-add-item {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.header-action-group button {
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-action-group button:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Màu vàng đặc trưng cho nút kho hàng */
+.btn-inventory {
+  background-color: #ffc107 !important;
+}
+
+/* Container cho User Profile */
+.user-profile {
+  position: relative;
+  display: inline-block;
+  padding: 0 10px;
+  height: 50px;
+  line-height: 50px; /* Căn giữa tên theo chiều dọc thanh navbar */
+}
+
+/* Menu xổ xuống (Dropdown Content) */
+.user-dropdown {
+  display: none; /* Mặc định ẩn */
+  position: absolute;
+  right: 0;
+  top: 50px;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
+  border-radius: 0 0 4px 4px;
+  z-index: 9999;
+}
+
+/* Các mục trong menu */
+.user-dropdown a {
+  color: #333;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 13px;
+  line-height: normal; /* Trả về line-height bình thường cho chữ */
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.user-dropdown a:hover {
+  background-color: #f8f9fa;
+  color: #007bff;
+}
+
+/* Hiện menu khi di chuột vào user-profile */
+.user-profile:hover .user-dropdown {
+  display: block;
+}
+
+.user-profile:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Màu riêng cho nút đăng xuất */
+.logout-link {
+  color: #dc3545 !important;
+  font-weight: bold;
+}
+/* 1. Đặt vị trí tương đối cho thẻ li cha để menu con bám theo nó */
+.nav-menu li.has-child {
+  position: relative;
+}
+
+/* 2. Ẩn menu con mặc định và định vị nó */
+.nav-menu .sub-menu {
+  display: none; /* Ẩn đi */
+  position: absolute; /* Tuyệt đối so với thẻ li cha */
+  top: 50px; /* Nằm ngay dưới thanh navbar (cao 50px) */
+  left: 0;
+  background-color: white;
+  min-width: 200px; /* Chiều rộng tối thiểu của menu con */
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15); /* Đổ bóng cho đẹp */
+  border-radius: 0 0 4px 4px;
+  list-style: none;
+  z-index: 1000; /* Đảm bảo nổi lên trên các thành phần khác */
+}
+
+/* 3. Hiện menu con khi di chuột vào thẻ li cha */
+.nav-menu li.has-child:hover .sub-menu {
+  display: block;
+}
+
+/* 4. Định dạng các link bên trong menu con */
+.nav-menu .sub-menu li a {
+  color: #333 !important; /* Chữ màu đen cho dễ đọc trên nền trắng */
+  font-size: 14px;
+  padding: 10px 15px;
+  border-bottom: 1px solid #f1f1f1;
+  height: auto; /* Reset chiều cao cố định của navbar cha */
+  line-height: normal;
+  display: block; /* Để vùng click rộng ra toàn dòng */
+}
+
+/* 5. Hiệu ứng khi di chuột vào mục con */
+.nav-menu .sub-menu li a:hover {
+  background-color: #f8f9fa !important;
+  color: #007bff !important; /* Chữ chuyển xanh khi hover */
+}
+
+/* Mũi tên nhỏ bên cạnh menu con (nếu có dùng icon caret) */
+.nav-menu .sub-menu li a i {
+  display: none; /* Ẩn icon nếu không cần thiết trong menu con */
+}

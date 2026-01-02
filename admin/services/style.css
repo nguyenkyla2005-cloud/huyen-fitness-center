@@ -1,0 +1,89 @@
+/* ===== BANNER ===== */
+.page-banner {
+    position: relative;
+    height: 320px;
+    background: url("images/banner-service.jpg") center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+}
+
+.banner-content {
+    position: relative;
+    color: #fff;
+    text-align: center;
+}
+
+.banner-content h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+.banner-content p {
+    font-size: 14px;
+}
+
+.banner-content a {
+    color: #ff5722;
+    text-decoration: none;
+}
+
+/* ===== SERVICES ===== */
+.service-page {
+    padding: 80px 0;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+
+.service-card {
+    background: #fff;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.service-card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+}
+
+.service-card h3 {
+    font-size: 20px;
+    margin: 20px;
+}
+
+.service-card p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0 20px 20px;
+    color: #555;
+}
+
+.btn-read {
+    display: inline-block;
+    margin: 0 20px 25px;
+    padding: 8px 16px;
+    background: #ff5722;
+    color: #fff;
+    font-size: 13px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .service-grid {
+        grid-template-columns: 1fr;
+    }
+}

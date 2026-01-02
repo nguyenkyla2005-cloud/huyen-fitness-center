@@ -1,0 +1,38 @@
+/* Lightweight styling for Websites module (works with Bootstrap + main.css) */
+
+.hf-page-title {
+  font-weight: 700;
+}
+
+.hf-card-link {
+  text-decoration: none;
+}
+
+.hf-card-link .card {
+  transition: transform .08s ease, box-shadow .08s ease;
+}
+
+.hf-card-link:hover .card {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0,0,0,.08);
+}
+
+.hf-thumb {
+  width: 84px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid #eee;
+}
+
+.hf-form-label {
+  font-weight: 600;
+}
+
+.hf-note {
+  background: #f7faff;
+  border: 1px solid #dbe9ff;
+  border-radius: 12px;
+  padding: 10px 12px;
+  color: #0b3a7a;
+}

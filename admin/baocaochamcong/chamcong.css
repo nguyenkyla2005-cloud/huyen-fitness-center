@@ -1,0 +1,405 @@
+/* Layout chung cho trang báo cáo */
+.report-container {
+    display: flex;
+    background-color: #f4f7f6;
+    min-height: calc(100vh - 50px); /* Trừ đi height của navbar */
+    font-family: Arial, sans-serif;
+}
+
+/* --- SIDEBAR BỘ LỌC (TRÁI) --- */
+.filter-sidebar {
+    width: 260px;
+    background-color: white;
+    border-right: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-group {
+    border-bottom: 1px solid #eee;
+}
+
+.filter-header {
+    background-color: #0088ff; /* Màu xanh của tiêu đề sidebar */
+    color: white;
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filter-body {
+    padding: 15px;
+}
+
+.filter-input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    outline: none;
+    font-size: 13px;
+}
+
+.filter-input:focus {
+    border-bottom-color: #0088ff;
+}
+
+/* Mockup cho ô chọn ngày */
+.date-picker-mock {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #555;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+/* Dropdown số bản ghi */
+.display-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+}
+
+.display-option select {
+    padding: 2px 5px;
+    border: 1px solid #ddd;
+}
+
+.float-right {
+    float: right;
+}
+
+/* Nút user tròn ở góc dưới sidebar */
+.bottom-user-icon {
+    margin-top: auto; /* Đẩy xuống đáy */
+    padding: 15px;
+}
+.bottom-user-icon i {
+    background-color: #0088ff;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* --- NỘI DUNG CHÍNH (PHẢI) --- */
+.report-content {
+    flex: 1;
+    padding: 20px;
+    overflow-x: auto;
+}
+
+.content-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.content-header-row h2 {
+    font-size: 20px;
+    color: #333;
+    margin: 0;
+}
+
+/* Nút Action màu xanh lá */
+.btn-green {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 3px;
+    font-size: 13px;
+    cursor: pointer;
+    margin-left: 5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.btn-green:hover {
+    background-color: #218838;
+}
+
+.btn-icon-only {
+    padding: 8px 10px;
+}
+
+/* Bảng dữ liệu */
+.table-responsive {
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.report-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.report-table th {
+    text-align: left;
+    padding: 12px 15px;
+    font-size: 12px;
+    color: #333;
+    font-weight: bold;
+    border-bottom: 1px solid #eee;
+    white-space: nowrap;
+}
+
+.report-table td {
+    padding: 12px 15px;
+    font-size: 13px;
+    color: #555;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.report-table tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+/* Phân trang */
+.pagination-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    font-size: 13px;
+    color: #666;
+}
+
+.pagination-controls {
+    display: flex;
+    gap: 5px;
+}
+
+.page-btn {
+    border: 1px solid #ddd;
+    background: white;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    color: #0088ff;
+}
+
+.page-btn.active {
+    background-color: #0088ff;
+    color: white;
+    border-color: #0088ff;
+}
+
+.page-btn:hover:not(.active) {
+    background-color: #f0f0f0;
+}
+/* --- CSS CHO CÁC NÚT HÀNH ĐỘNG --- */
+.btn-action {
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 0 2px;
+    color: white;
+}
+.btn-edit { background-color: #ffc107; } /* Màu vàng */
+.btn-delete { background-color: #dc3545; } /* Màu đỏ */
+
+/* --- CSS CHO MODAL (POPUP) --- */
+.modal {
+    display: none; /* Mặc định ẩn */
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0,0,0,0.5); /* Nền mờ đen */
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto; /* Cách trên 10%, căn giữa */
+    padding: 20px;
+    border-radius: 8px;
+    width: 500px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #aaa;
+}
+.close:hover { color: black; }
+
+.modal h3 { margin-top: 0; color: #007bff; text-align: center; margin-bottom: 20px;}
+
+/* Form trong modal */
+.form-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+.form-row input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.form-row-4 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 15px;
+    align-items: center;
+}
+.form-row-4 input {
+    width: 60px;
+    padding: 5px;
+    border: 1px solid #ddd;
+}
+.btn-submit {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.btn-submit:hover { background-color: #0056b3; }
+/* --- CSS NÚT TÌM KIẾM SIDEBAR --- */
+.btn-search-sidebar {
+    width: 100%;
+    background-color: #0088ff;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 5px;
+    transition: background 0.3s;
+}
+
+.btn-search-sidebar:hover {
+    background-color: #0066cc;
+}
+
+/* --- CSS CHO MODAL MỚI (LABEL NẰM TRÊN INPUT) --- */
+.stats-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* Chia đều chiều rộng */
+}
+
+.stat-item label {
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.stat-item input {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-align: center;
+    width: 100%;
+}
+/* --- FOOTER PHÂN TRANG --- */
+.pagination-footer {
+    display: flex;
+    justify-content: space-between; /* Đẩy 2 bên ra xa nhau */
+    align-items: center;
+    margin-top: 20px;
+    font-size: 13px;
+    color: #666;
+    background: transparent; /* Nền trong suốt */
+}
+
+.pagination-controls {
+    display: flex;
+    gap: 5px;
+}
+
+.page-btn {
+    border: 1px solid #ddd;
+    background: white;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    color: #333;
+    text-decoration: none; /* Vì dùng thẻ a nên bỏ gạch chân */
+    transition: all 0.2s;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 32px; /* Để nút vuông vắn */
+}
+
+.page-btn:hover:not(.disabled) {
+    background-color: #f0f0f0;
+    border-color: #ccc;
+}
+
+/* Nút đang chọn (Active) - Màu xanh */
+.page-btn.active {
+    background-color: #0088ff;
+    color: white;
+    border-color: #0088ff;
+}
+
+/* Nút bị vô hiệu hóa (Disabled) - Xám mờ */
+.page-btn.disabled {
+    background-color: #f9f9f9;
+    color: #ccc;
+    cursor: not-allowed;
+    border-color: #eee;
+}
+/* --- CSS CHO DATE PICKER TRONG SIDEBAR --- */
+.date-range-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.date-range-container label {
+    font-size: 12px;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* Ẩn cái mockup lịch cũ đi nếu còn */
+.date-picker-mock {
+    display: none;
+}

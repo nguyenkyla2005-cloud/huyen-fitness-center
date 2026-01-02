@@ -1,0 +1,234 @@
+/* =========================================================
+   FILE: style_admin.css (ĐÃ ĐỒNG BỘ NAVBAR)
+   ========================================================= */
+
+/* 1. Tổng thể */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+  background-color: #f4f7f6;
+  font-size: 13px;
+  color: #333;
+}
+
+/* =========================================================
+   2. NAVBAR - MENU TRÊN CÙNG (ĐỒNG BỘ)
+   ========================================================= */
+.navbar-top {
+  background-color: #007bff; /* Màu xanh chủ đạo */
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+  color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky; /* Giữ menu cố định khi cuộn */
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0 !important;
+  padding-left: 0;
+}
+
+.nav-menu li a {
+  color: white;
+  text-decoration: none;
+  padding: 0 15px;
+  display: flex;
+  align-items: center;
+  height: 50px;
+  font-size: 14px;
+  transition: background 0.3s;
+}
+
+.nav-menu li a:hover,
+.nav-menu li a.active {
+  background-color: rgba(255, 255, 255, 0.2); /* Hiệu ứng hover sáng nhẹ */
+}
+
+.nav-menu li a i {
+  margin-right: 8px; /* Khoảng cách icon và chữ */
+  font-size: 16px;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-info-link {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  padding: 0 10px;
+  height: 50px;
+}
+
+.user-info-link:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* =========================================================
+   3. SIDEBAR & NỘI DUNG RIÊNG CỦA TRANG ADMIN
+   ========================================================= */
+
+/* Sidebar bộ lọc */
+.sidebar-filter {
+  background: white;
+  border-right: 1px solid #dee2e6;
+  height: calc(100vh - 50px); /* Trừ đi chiều cao Navbar */
+  padding: 15px;
+  overflow-y: auto;
+}
+
+.filter-title {
+  background-color: #007bff;
+  color: white;
+  padding: 8px;
+  font-weight: bold;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.filter-group {
+  margin-bottom: 20px;
+  padding-left: 5px;
+}
+
+.filter-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #495057;
+}
+
+/* Thanh tiêu đề và Ô tìm kiếm */
+.content-header-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px; /* Thêm khoảng cách dưới */
+}
+
+.search-box-container {
+  max-width: 500px;
+  position: relative; /* Để icon tìm kiếm định vị theo ô này */
+}
+
+.search-input {
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  padding-left: 35px;
+  font-size: 13px;
+  height: 34px;
+  background-color: #fff;
+  transition: border-color 0.3s;
+  width: 100%;
+}
+
+.search-input:focus {
+  box-shadow: none;
+  border-color: #007bff;
+  outline: none;
+}
+
+.search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #bbb;
+  font-size: 14px;
+  z-index: 5;
+  pointer-events: none; /* Để click xuyên qua icon vào input */
+}
+
+/* Nút chức năng */
+.btn-gym {
+  padding: 6px 12px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  background: white;
+  font-size: 12px;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.btn-add {
+  background-color: #28a745;
+  color: white !important;
+  border: none;
+}
+.btn-add:hover {
+  background-color: #218838;
+}
+
+.btn-follow {
+  background-color: #007bff;
+  color: white !important;
+  border: none;
+}
+.btn-follow:hover {
+  background-color: #0069d9;
+}
+
+.btn-expand {
+  background-color: #343a40;
+  color: white !important;
+  border: none;
+}
+.btn-expand:hover {
+  background-color: #23272b;
+}
+
+/* Bảng dữ liệu */
+.table-container {
+  background: white;
+  border-radius: 4px;
+  border: 1px solid #dee2e6;
+  overflow: hidden;
+}
+
+.table {
+  width: 100%;
+  margin-bottom: 0;
+  border-collapse: collapse;
+}
+
+.table thead th {
+  background-color: #f8f9fa;
+  border-bottom: 2px solid #dee2e6;
+  color: #333;
+  font-weight: 600;
+  padding: 12px;
+  text-align: left;
+}
+
+.table td {
+  padding: 10px 12px;
+  vertical-align: middle;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.status-active {
+  background-color: #28a745;
+  color: white;
+  padding: 2px 10;
+}
