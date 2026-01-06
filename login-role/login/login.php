@@ -22,16 +22,35 @@ if (isset($_SESSION['user'])) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    ...
-    if ($result && mysqli_num_rows($result) === 1) {
-        $_SESSION['user'] = $user;
+    $username = trim($_POST['username'] ?? "");
+    $password = trim($_POST['password'] ?? "");
 
-        if ($user['role'] === 'admin') {
-            header("Location: " . BASE_URL . "admin/qlkh/admin.php");
+    if ($username === "" || $password === "") {
+        $error = "Vui lòng nhập đầy đủ tài khoản và mật khẩu!";
+    } else {
+        $stmt = mysqli_prepare($conn, "SELECT * FROM users WHERE username = ? AND password = ? LIMIT 1");
+        if ($stmt) {
+            mysqli_stmt_bind_param($stmt, "ss", $username, $password);
+            mysqli_stmt_execute($stmt);
+            $result = mysqli_stmt_get_result($stmt);
+
+            if ($result && mysqli_num_rows($result) === 1) {
+                $user = mysqli_fetch_assoc($result);
+                $_SESSION['user'] = $user;
+
+                if (!empty($user['role']) && $user['role'] === 'admin') {
+                    header("Location: /admin/qlkh/admin.php");
+                } else {
+                    header("Location: " . $redirect);
+                }
+                exit;
+            } else {
+                $error = "Sai tài khoản hoặc mật khẩu!";
+            }
+            mysqli_stmt_close($stmt);
         } else {
-            header("Location: " . $redirect);
+            $error = "Lỗi hệ thống. Vui lòng thử lại!";
         }
-        exit;
     }
 }
 ?>
