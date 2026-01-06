@@ -30,7 +30,7 @@ $currentUrl = $_SERVER['REQUEST_URI'] ?? '/BTL/login-role/index.php';
     <div class="menu-auth">
       <?php if (!$isLogged): ?>
         <a class="auth-btn"
-           href="/BTL/login-role/login/login.php?redirect=<?= urlencode($currentUrl) ?>">
+           href="login/login.php?redirect=<?= urlencode($currentUrl) ?>">
           Đăng nhập
         </a>
       <?php else: ?>
