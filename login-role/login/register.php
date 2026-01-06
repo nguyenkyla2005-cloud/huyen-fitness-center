@@ -29,6 +29,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $error = "Vui lòng nhập đầy đủ thông tin!";
     } elseif (strlen($username) < 3) {
         $error = "Tên đăng nhập phải ít nhất 3 ký tự!";
+    elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $error = "Email không hợp lệ!";
+    }
     } elseif (strlen($password) < 6) {
         $error = "Mật khẩu phải ít nhất 6 ký tự!";
     } elseif ($password !== $confirm) {
