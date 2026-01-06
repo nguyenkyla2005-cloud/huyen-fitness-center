@@ -21,6 +21,7 @@ function getRoleLikeUser1($conn) {
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $username = trim($_POST['username'] ?? "");
+    $email    = trim($_POST['email'] ?? '');
     $password = trim($_POST['password'] ?? "");
     $confirm  = trim($_POST['confirm_password'] ?? "");
 
@@ -47,8 +48,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $role = getRoleLikeUser1($conn); // quyền giống user1
 
             // insert (GIỮ password plain text để login hiện tại dùng được)
-            $stmt2 = mysqli_prepare($conn, "INSERT INTO users (username, password, role) VALUES (?, ?, ?)");
-            mysqli_stmt_bind_param($stmt2, "sss", $username, $password, $role);
+            $stmt2 = mysqli_prepare(
+    $conn,
+    "INSERT INTO users (username, email, password, role)
+     VALUES (?, ?, ?, ?)"
+);
+            mysqli_stmt_bind_param(
+    $stmt2,
+    "ssss",
+    $username,
+    $email,
+    $plainPassword,
+    $role
+);
             $ok = mysqli_stmt_execute($stmt2);
             mysqli_stmt_close($stmt2);
 
@@ -91,6 +103,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       <?php endif; ?>
 
       <form method="post" class="form">
+         <label class="label">Email</label>
+        <input class="input" type="email" name="email" placeholder="vd: abc@gmail.com" required>
         <label class="label">Tên đăng nhập</label>
         <input class="input" type="text" name="username" placeholder="vd: tungdt" required>
 
