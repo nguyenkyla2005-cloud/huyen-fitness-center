@@ -2,57 +2,36 @@
 session_start();
 require '../db.php';
 
-// Lấy redirect từ GET/POST để login xong quay lại đúng trang
-$redirect = $_GET['redirect'] ?? ($_POST['redirect'] ?? '../index.php');
+define('BASE_URL', '/');
 
-// Chặn open-redirect: chỉ cho phép đường dẫn nội bộ (tương đối)
+$redirect = $_GET['redirect'] ?? ($_POST['redirect'] ?? BASE_URL);
+
+// Chặn open-redirect
 if (preg_match('#^https?://#i', $redirect)) {
-    $redirect = '../index.php';
+    $redirect = BASE_URL;
 }
 
-
-// Nếu đã đăng nhập thì tự chuyển hướng
+// Nếu đã đăng nhập
 if (isset($_SESSION['user'])) {
     if (!empty($_SESSION['user']['role']) && $_SESSION['user']['role'] === 'admin') {
-        header("Location: ../../admin/qlkh/admin.php");
+        header("Location: " . BASE_URL . "admin/qlkh/admin.php");
     } else {
         header("Location: " . $redirect);
     }
     exit;
 }
 
-
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $username = trim($_POST['username'] ?? "");
-    $password = trim($_POST['password'] ?? "");
+    ...
+    if ($result && mysqli_num_rows($result) === 1) {
+        $_SESSION['user'] = $user;
 
-    if ($username === "" || $password === "") {
-        $error = "Vui lòng nhập đầy đủ tài khoản và mật khẩu!";
-    } else {
-        // Giữ đúng kiểu đăng nhập hiện tại (password lưu plain text)
-        $stmt = mysqli_prepare($conn, "SELECT * FROM users WHERE username = ? AND password = ? LIMIT 1");
-        if ($stmt) {
-            mysqli_stmt_bind_param($stmt, "ss", $username, $password);
-            mysqli_stmt_execute($stmt);
-            $result = mysqli_stmt_get_result($stmt);
-
-            if ($result && mysqli_num_rows($result) === 1) {
-                $user = mysqli_fetch_assoc($result);
-                $_SESSION['user'] = $user;
-
-               if (!empty($user['role']) && $user['role'] === 'admin') {
-               header("Location: ../../admin/qlkh/admin.php");
-              } else {
-              header("Location: " . $redirect);
-              }
-            exit;
-            } else {
-                $error = "Sai tài khoản hoặc mật khẩu!";
-            }
-            mysqli_stmt_close($stmt);
+        if ($user['role'] === 'admin') {
+            header("Location: " . BASE_URL . "admin/qlkh/admin.php");
         } else {
-            $error = "Lỗi hệ thống. Vui lòng thử lại!";
+            header("Location: " . $redirect);
         }
+        exit;
     }
 }
 ?>
