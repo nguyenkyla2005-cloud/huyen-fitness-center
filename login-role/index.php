@@ -154,7 +154,7 @@ if (isset($_POST['register_trial'])) {
     <div class="hero-left">
       <p class="hero-brand"><span>HUYỀN</span>FITNESS</p>
 
-      <h1 class="hero-title">HUYỀN FITNESS</h1>
+      <h1 class="hero-title">HUYỀN FITNESS GYM</h1>
       <p class="hero-subtitle">HỆ THỐNG FITNESS CHUYÊN NGHIỆP</p>
 
       <div class="hero-actions">
