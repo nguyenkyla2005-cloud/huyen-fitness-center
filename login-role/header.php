@@ -8,7 +8,11 @@ $isLogged = is_array($user);
 $username = $user['username'] ?? 'Tài khoản';
 $role = $user['role'] ?? '';
 
-$currentUrl = $_SERVER['REQUEST_URI'] ?? '/BTL/login-role/index.php';
+// BASE URL – quan trọng cho Render
+define('BASE_URL', '/');
+
+// URL hiện tại để redirect sau login
+$currentUrl = $_SERVER['REQUEST_URI'] ?? '/';
 ?>
 
 <header class="header">
@@ -18,19 +22,19 @@ $currentUrl = $_SERVER['REQUEST_URI'] ?? '/BTL/login-role/index.php';
     </div>
 
     <nav class="menu">
-      <a href="/BTL/login-role/index.php">Trang chủ</a>
-      <a href="/BTL/login-role/services/services.php">Dịch vụ</a>
-      <a href="/BTL/login-role/schedule/schedule.php">Lịch tập</a>
-      <a href="/BTL/login-role/trainer/trainer.php">Huấn luyện viên</a>
-      <a href="/BTL/login-role/news/news.php">Tin tức</a>
-      <a href="/BTL/login-role/tapthu/tapthu.php">Tập thử</a>
+      <a href="<?= BASE_URL ?>">Trang chủ</a>
+      <a href="<?= BASE_URL ?>services/services.php">Dịch vụ</a>
+      <a href="<?= BASE_URL ?>schedule/schedule.php">Lịch tập</a>
+      <a href="<?= BASE_URL ?>trainer/trainer.php">Huấn luyện viên</a>
+      <a href="<?= BASE_URL ?>news/news.php">Tin tức</a>
+      <a href="<?= BASE_URL ?>tapthu/tapthu.php">Tập thử</a>
     </nav>
 
     <!-- LOGIN / USER MENU -->
     <div class="menu-auth">
       <?php if (!$isLogged): ?>
         <a class="auth-btn"
-           href="login/login.php?redirect=<?= urlencode($currentUrl) ?>">
+           href="<?= BASE_URL ?>login/login.php?redirect=<?= urlencode($currentUrl) ?>">
           Đăng nhập
         </a>
       <?php else: ?>
@@ -41,13 +45,13 @@ $currentUrl = $_SERVER['REQUEST_URI'] ?? '/BTL/login-role/index.php';
           </button>
 
           <div class="auth-dropdown" id="authDropdown">
-            <a href="/BTL/login-role/login/change-password.php">Đổi mật khẩu</a>
+            <a href="<?= BASE_URL ?>login/change-password.php">Đổi mật khẩu</a>
 
             <?php if ($role === 'admin'): ?>
-              <a href="../admin/qlkh/admin.php">Quản trị</a>
+              <a href="<?= BASE_URL ?>admin/qlkh/admin.php">Quản trị</a>
             <?php endif; ?>
 
-            <a class="danger" href="/BTL/login-role/login/logout.php">Đăng xuất</a>
+            <a class="danger" href="<?= BASE_URL ?>login/logout.php">Đăng xuất</a>
           </div>
         </div>
       <?php endif; ?>
